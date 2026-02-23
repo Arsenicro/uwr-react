@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <button id="counterButton">Click me</button>
+    <div>
+      <span>Button Clicked</span>
+      <span id="counterValue">0</span>
+      <span>times</span>
+    </div>
+  </body>
+
+  <script>
+    const buttonElement = document.getElementById("counterButton");
+    const counterValueElement = document.getElementById("counterValue");
+    let counterValue = +counterValueElement.textContent;
+
+    buttonElement.addEventListener("click", () => {
+      counterValue++;
+      counterValueElement.textContent = counterValue;
+    });
+  </script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.23/lodash.min.js"></script>-->
+</html>

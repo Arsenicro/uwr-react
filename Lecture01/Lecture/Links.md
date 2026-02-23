@@ -1,2 +1,0 @@
-- [CodeSandbox Podstawy](https://codesandbox.io/p/sandbox/thirsty-bohr-zwjqk9)
-- [CodeSandbox Filmy](https://codesandbox.io/p/sandbox/filmy-j46lzt)
