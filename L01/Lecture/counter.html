@@ -14,15 +14,16 @@
     </div>
   </body>
 
-  <script>
+  <!--   <script>
     const buttonElement = document.getElementById("counterButton");
     const counterValueElement = document.getElementById("counterValue");
-    let counterValue = +counterValueElement.textContent;
+    let counterValue = _.toNumber(counterValueElement.textContent);
 
     buttonElement.addEventListener("click", () => {
       counterValue++;
       counterValueElement.textContent = counterValue;
     });
   </script>
-  <!--<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.23/lodash.min.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.23/lodash.min.js"></script> -->
+  <script src="counter.js" type="module"></script>
 </html>
