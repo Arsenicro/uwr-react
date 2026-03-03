@@ -3,13 +3,53 @@ import CardTitle from "./CardTitle"
 
 interface Props {
   title: string
-  productionYear: number
+  productionYear?: number
   backgroundImage: string
+  done?: boolean
+  toggleDone: () => void
 }
 
-function Card({ title, productionYear, backgroundImage }: Props) {
+
+function Card({ title, productionYear, backgroundImage, done = false, toggleDone }: Props) {
+  /*   const [movie, setMovie] = useState({
+      title,
+      productionYear,
+      backgroundImage,
+      done
+    }) */
+
+  /*
+
+  const [person, setPerson] = useState({
+    name: "Alice",
+    surname: "Young",
+    address: {
+      city: {
+        name: "New York",
+        postcode: '123-123'
+      },
+      country: 'USA'
+    }
+
+  })
+
+  person.address.city.postcode = '123-456' // W immerze zadziała 
+
+  setPerson({...person, address: {...person.address, city: {...person.address.city, postcode: '123-456' }}})
+
+  */
+
+
+  const containerClassName = `card-wrapper ${done ? 'card--watched' : ''}`
+
+
+  const handleClick = () => {
+    //setMovie({ ...movie, done: !movie.done }); // Przekazanie nowego obiektu!
+    toggleDone()
+  }
+
   return (
-    <div className="card-wrapper">
+    <div className={containerClassName}>
       <div
         className="card"
         style={{
@@ -17,10 +57,10 @@ function Card({ title, productionYear, backgroundImage }: Props) {
         }}
       >
         <CardTitle title={title} />
-        <CardProductionYear productionYear={productionYear} />
+        {productionYear && <CardProductionYear productionYear={productionYear} />}
       </div>
-      <button className="card__button">
-        Mark as watched
+      <button className="card__button" onClick={handleClick}>
+        {done ? 'Mark as unwatched' : 'Mark as watched'}
       </button>
     </div>
   )
