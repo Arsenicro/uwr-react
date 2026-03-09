@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imperative Form Example</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      .card {
+        max-width: 400px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div id="quiz-container">
+        <h2>Quiz Time</h2>
+        <p>Which city is the capital of France?</p>
+
+        <form id="quiz-form">
+          <input
+            type="text"
+            id="answer-input"
+            placeholder="Enter city name..."
+            autocomplete="off"
+          />
+          <button type="submit" id="submit-btn" disabled>Submit Answer</button>
+        </form>
+
+        <div id="error-message" class="error" style="display: none">
+          Incorrect answer. Please try again!
+        </div>
+      </div>
+
+      <div id="success-message" class="success" style="display: none">
+        <h2>Good answer!</h2>
+        <p>Paris is correct.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
