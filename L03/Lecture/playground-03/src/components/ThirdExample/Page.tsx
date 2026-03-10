@@ -1,7 +1,12 @@
-import type React from 'react';
+import React, { createContext, useContext } from 'react';
 import './main.css';
 
-function Heading({ level, children }: React.PropsWithChildren<{ level: number }>) {
+const LevelContext = createContext(0);
+const LevelProvider = LevelContext.Provider;
+
+function Heading({ children }: React.PropsWithChildren) {
+  const level = useContext(LevelContext);
+
   switch (level) {
     case 1:
       return <h1>{children}</h1>;
@@ -21,10 +26,14 @@ function Heading({ level, children }: React.PropsWithChildren<{ level: number }>
 }
 
 function Section({ children }: React.PropsWithChildren) {
+  const level = useContext(LevelContext);
+
   return (
-    <section className="section">
-      {children}
-    </section>
+    <LevelProvider value={level + 1}>
+      <section className="section">
+        {children}
+      </section>
+    </LevelProvider>
   );
 }
 
@@ -32,19 +41,19 @@ function Section({ children }: React.PropsWithChildren) {
 export function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading>Title</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
           </Section>
         </Section>
       </Section>

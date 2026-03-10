@@ -1,16 +1,10 @@
-import React from 'react';
+import { useMovieContext } from './context/MovieContext';
 import './DisneyWatchlist.css';
 import MovieItem from './MovieItem';
-import type { Movie } from './types';
 
-interface MovieListProps {
-  movies: Movie[];
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
-  onUpdate: (id: string, updatedTitle: string, updatedDescription: string) => void;
-}
 
-const MovieList: React.FC<MovieListProps> = ({ movies, onToggle, onDelete, onUpdate }) => {
+const MovieList = () => {
+  const { movies, toggleMovie, deleteMovie, updateMovie } = useMovieContext();
   return (
     <div className="movie-list">
       {movies.length === 0 ? (
@@ -20,9 +14,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onToggle, onDelete, onUpd
           <MovieItem
             key={movie.id}
             movie={movie}
-            onToggle={onToggle}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
+            onToggle={toggleMovie}
+            onDelete={deleteMovie}
+            onUpdate={updateMovie}
           />
         ))
       )}

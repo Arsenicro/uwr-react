@@ -10,6 +10,7 @@ interface MovieItemProps {
 }
 
 const MovieItem: React.FC<MovieItemProps> = ({ movie, onToggle, onDelete, onUpdate }) => {
+
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(movie.title);
   const [editDescription, setEditDescription] = useState(movie.description);

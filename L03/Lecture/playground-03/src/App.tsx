@@ -1,8 +1,8 @@
-import { FormExample } from "./components/FirstExample/FormExample"
+import ContextPerformance from "./components/FifthExample/ContextPerformance"
 
 function App() {
 
-  //return <ContextPerformance />
+  return <ContextPerformance />
 
   //return <DisneyWatchlist />
 
@@ -10,7 +10,7 @@ function App() {
 
   //return <StateRules />
 
-  return <FormExample />
+  //return <FormExample />
 }
 
 export default App

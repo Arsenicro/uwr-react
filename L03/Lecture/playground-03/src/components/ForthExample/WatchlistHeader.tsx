@@ -1,12 +1,8 @@
-import React from 'react';
+import { useMovieContext } from './context/MovieContext';
 import './DisneyWatchlist.css';
-import type { Movie } from './types';
 
-interface WatchlistHeaderProps {
-  movies: Movie[];
-}
-
-const WatchlistHeader: React.FC<WatchlistHeaderProps> = ({ movies }) => {
+const WatchlistHeader = () => {
+  const { movies } = useMovieContext();
   const totalMovies = movies.length;
   const completedMovies = movies.filter((m) => m.isCompleted).length;
 

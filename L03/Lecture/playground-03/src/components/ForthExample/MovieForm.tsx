@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import './DisneyWatchlist.css';
+import { useMovieContext } from './context/MovieContext';
 
-interface MovieFormProps {
-  onAddMovie: (title: string, description: string) => void;
-}
-
-const MovieForm: React.FC<MovieFormProps> = ({ onAddMovie }) => {
+const MovieForm = () => {
+  const { addMovie } = useMovieContext();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) return;
-    onAddMovie(title, description);
+    addMovie(title, description);
     setTitle('');
     setDescription('');
   };
