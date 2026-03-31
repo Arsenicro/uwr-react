@@ -1,10 +1,10 @@
-import { useMovieContext } from './context/MovieContext';
 import './DisneyWatchlist.css';
 import MovieItem from './MovieItem';
+import { useMovieList } from './useMovieList';
 
 
 const MovieList = () => {
-  const { movies, toggleMovie, deleteMovie, updateMovie } = useMovieContext();
+  const { movies, toggleMovie, deleteMovie, updateMovie } = useMovieList();
   return (
     <div className="movie-list">
       {movies.length === 0 ? (

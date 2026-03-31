@@ -19,8 +19,7 @@ function ToggleSecond() {
   return (
     <div>
       <div>
-        <Counter />
-        {renderSecond && <Counter />}
+        {renderSecond ? <><Counter /><Counter /></> : <Counter />}
       </div>
       <button onClick={() => setRenderSecond((prev) => !prev)}>
         Toggle Second Counter
@@ -48,18 +47,22 @@ function StillSamePositionDifferentProps() {
 
   if (fancy) {
     return (
-      <div>
-        <Counter fancy={true} />
-        <button onClick={() => setFancy(false)}>
-          Toggle Fancy
-        </button>
-      </div>
+      <>
+        <div>
+          <button onClick={() => setFancy(false)}>
+            Toggle Fancy
+          </button>
+        </div>
+        <div>
+          <Counter key="Counter" fancy={true} />
+        </div>
+      </>
     );
   }
 
   return (
     <div>
-      <Counter fancy={false} />
+      <Counter key="Counter" fancy={false} />
       <button onClick={() => setFancy(true)}>
         Toggle Fancy
       </button>
@@ -73,7 +76,7 @@ function WrongKeyUsage() {
   return (
     <div>
       {counters.map((name, index) => (
-        <Counter key={index} name={name} />
+        <Counter key={name} name={name} />
       ))}
       <button onClick={() => setCounters((prev) => prev[0] === "Alice" ? ["Bob", "Alice"] : ["Alice", "Bob"])}>
         Swap Counters
@@ -90,7 +93,7 @@ function NestedComponentDefinition() {
     const [text, setText] = useState('');
 
     return <input value={text} onChange={(e) => setText(e.target.value)} placeholder="Type something..." />;
-  }
+  } //Tak nie robimy!
 
   return (
     <div>
@@ -98,7 +101,7 @@ function NestedComponentDefinition() {
       <button onClick={() => setCount((prev) => prev + 1)}>
         Increment Count
       </button>
-      <TextField />
+      <TextField key="Text" />
     </div>
   );
 }
@@ -116,7 +119,7 @@ function ResetStateProblem() {
   )
 }
 
-function ResetStateSolution1() {
+function ResetStateProblem1() {
   const [player, setPlayer] = useState('Alice');
 
   return (
@@ -124,12 +127,12 @@ function ResetStateSolution1() {
       <button onClick={() => setPlayer(player === 'Alice' ? 'Bob' : 'Alice')}>
         Switch Player
       </button>
-      <Counter name={player} />
+      <Counter key={player} name={player} />
     </div>
   )
 }
 
-function ResetStateSolution2() {
+function ResetStateProblem2() {
   const [player, setPlayer] = useState('Alice');
 
   return (
@@ -137,11 +140,16 @@ function ResetStateSolution2() {
       <button onClick={() => setPlayer(player === 'Alice' ? 'Bob' : 'Alice')}>
         Switch Player
       </button>
-      <Counter name={player} />
+      {player === 'Alice' && <Counter name="Alice" />}
+      {player === 'Bob' && <Counter name="Bob" />}
     </div>
   )
 }
+
 
 export function State() {
-  return <Counter />
+  return <>
+    <Counter name="Single Counter" />
+    <Counter name="Another Counter" />
+  </>
 }

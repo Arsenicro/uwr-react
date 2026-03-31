@@ -1,8 +1,8 @@
-import Purity from "./Purity/Purity";
+import DisneyWatchlist from "./DisneyWatchlist/DisneyWatchlist";
 
 
 function App() {
-  return <Purity />
+  return <DisneyWatchlist />
 }
 
 export default App

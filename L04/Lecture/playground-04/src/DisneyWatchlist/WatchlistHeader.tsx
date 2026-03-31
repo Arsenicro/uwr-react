@@ -1,8 +1,8 @@
-import { useMovieContext } from './context/MovieContext';
 import './DisneyWatchlist.css';
+import { useMovieList } from './useMovieList';
 
 const WatchlistHeader = () => {
-  const { movies } = useMovieContext();
+  const movies = useMovieList((state) => state.movies);
   const totalMovies = movies.length;
   const completedMovies = movies.filter((m) => m.isCompleted).length;
 

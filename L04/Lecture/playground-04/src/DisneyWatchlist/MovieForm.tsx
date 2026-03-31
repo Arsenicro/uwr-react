@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './DisneyWatchlist.css';
-import { useMovieContext } from './context/MovieContext';
+import { useMovieList } from './useMovieList';
 
 const MovieForm = () => {
-  const { addMovie } = useMovieContext();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const addMovie = useMovieList((state) => state.addMovie);
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,17 +1,17 @@
-let guest = 0;
-
-function Cup() {
-  // eslint-disable-next-line react-hooks/globals
-  guest = guest + 1;
+function Cup({ guest }: { guest: number }) {
   return <h2>Tea cup for guest #{guest}</h2>;
 }
 
 function TeaSet() {
+  const cups = [];
+
+  for (let i = 1; i <= 3; i++) {
+    cups.push(<Cup key={i} guest={i} />);
+  }
+
   return (
     <>
-      <Cup />
-      <Cup />
-      <Cup />
+      {cups}
     </>
   );
 }
