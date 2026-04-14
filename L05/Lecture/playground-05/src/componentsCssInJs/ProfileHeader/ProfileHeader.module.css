@@ -1,0 +1,51 @@
+.root {
+  text-align: center;
+}
+
+.root .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  border: 3px solid #22d3ee;
+}
+
+.root .name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+:global(.theme-light) .root .name {
+  color: #1e293b;
+}
+
+:global(.theme-dark) .root .name {
+  color: #f1f5f9;
+}
+
+.root .title {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+
+:global(.theme-light) .root .title {
+  color: #0891b2;
+}
+
+:global(.theme-dark) .root .title {
+  color: #22d3ee;
+}
+
+.root .company {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}

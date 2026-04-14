@@ -1,0 +1,50 @@
+// ── Shared tokens ─────────────────────────
+$radius-card: 16px;
+$radius-chip: 999px;
+$transition-speed: 0.3s;
+
+$accent-light: #0891b2;
+$accent-dark: #22d3ee;
+
+// ── Theme map ─────────────────────────────
+$themes: (
+  light: (
+    bg: #f0f4f8,
+    text: #475569,
+    heading: #1e293b,
+    surface: #ffffff,
+    border: #e2e8f0,
+    shadow: rgba(0, 0, 0, 0.08),
+    accent: $accent-light,
+    toggle-bg: #f1f5f9,
+  ),
+  dark: (
+    bg: #0b1120,
+    text: #94a3b8,
+    heading: #f1f5f9,
+    surface: #131c2e,
+    border: #1e2d45,
+    shadow: rgba(0, 0, 0, 0.3),
+    accent: $accent-dark,
+    toggle-bg: #1e293b,
+  ),
+);
+
+// ── Chip palettes ─────────────────────────
+$chip-colors: (
+  technical: (
+    bg: #dbeafe,
+    text: #1e40af,
+    border: #93c5fd,
+  ),
+  frontend: (
+    bg: #ede9fe,
+    text: #6d28d9,
+    border: #c4b5fd,
+  ),
+  soft: (
+    bg: #dcfce7,
+    text: #166534,
+    border: #86efac,
+  ),
+);

@@ -1,0 +1,81 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+:global(.theme-light).app {
+  background: #f0f4f8;
+  color: #475569;
+}
+
+:global(.theme-dark).app {
+  background: #0b1120;
+  color: #94a3b8;
+}
+
+.app .card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 36px 32px;
+  border: 1px solid;
+}
+
+:global(.theme-light).app .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+:global(.theme-dark).app .card {
+  background: #131c2e;
+  border-color: #1e2d45;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.app .card .themeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+:global(.theme-light).app .card .themeBtn {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+:global(.theme-dark).app .card .themeBtn {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.app .card .divider {
+  border: none;
+  height: 1px;
+  margin: 20px 0;
+}
+
+:global(.theme-light).app .card .divider {
+  background: #e2e8f0;
+}
+
+:global(.theme-dark).app .card .divider {
+  background: #1e2d45;
+}

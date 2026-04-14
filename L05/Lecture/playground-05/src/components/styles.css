@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ── App shell ─────────────────────────── */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.theme-light {
+  background: #f0f4f8;
+  color: #475569;
+}
+
+.theme-dark {
+  background: #0b1120;
+  color: #94a3b8;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 36px 32px;
+  border: 1px solid;
+}
+
+.theme-light .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.theme-dark .card {
+  background: #131c2e;
+  border-color: #1e2d45;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Theme toggle ──────────────────────── */
+
+.theme-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.theme-light .theme-btn {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.theme-dark .theme-btn {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* ── Divider ───────────────────────────── */
+
+.divider {
+  border: none;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.theme-light .divider {
+  background: #e2e8f0;
+}
+
+.theme-dark .divider {
+  background: #1e2d45;
+}
+
+/* ── ProfileHeader ─────────────────────── */
+
+.profile-header {
+  text-align: center;
+}
+
+.profile-header .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  border: 3px solid #22d3ee;
+}
+
+.profile-header .profile-name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.theme-light .profile-name {
+  color: #1e293b;
+}
+
+.theme-dark .profile-name {
+  color: #f1f5f9;
+}
+
+.profile-header .profile-title {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+
+.theme-light .profile-header .profile-title {
+  color: #0891b2;
+}
+
+.theme-dark .profile-header .profile-title {
+  color: #22d3ee;
+}
+
+.profile-header .profile-company {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ── ContactInfo ───────────────────────── */
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info .contact-item {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+/* ── AboutSection ──────────────────────── */
+
+.section-title {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.theme-light .section-title {
+  color: #1e293b;
+}
+
+.theme-dark .section-title {
+  color: #e2e8f0;
+}
+
+.about-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── SkillTags ─────────────────────────── */
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chips .chip {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.skill-chips .chip.technical {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.skill-chips .chip.frontend {
+  background: #ede9fe;
+  color: #6d28d9;
+  border-color: #c4b5fd;
+}
+
+.skill-chips .chip.soft {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}

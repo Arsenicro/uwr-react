@@ -1,0 +1,47 @@
+.title {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+:global(.theme-light) .title {
+  color: #1e293b;
+}
+
+:global(.theme-dark) .title {
+  color: #e2e8f0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips .chip {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.chips .chip.technical {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.chips .chip.frontend {
+  background: #ede9fe;
+  color: #6d28d9;
+  border-color: #c4b5fd;
+}
+
+.chips .chip.soft {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}

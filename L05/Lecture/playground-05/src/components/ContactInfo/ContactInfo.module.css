@@ -1,0 +1,8 @@
+.root {
+  text-align: center;
+}
+
+.root .item {
+  margin: 6px 0;
+  font-size: 0.9rem;
+}

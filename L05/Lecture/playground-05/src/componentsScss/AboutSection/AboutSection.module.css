@@ -1,0 +1,21 @@
+.title {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+:global(.theme-light) .title {
+  color: #1e293b;
+}
+
+:global(.theme-dark) .title {
+  color: #e2e8f0;
+}
+
+.text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
