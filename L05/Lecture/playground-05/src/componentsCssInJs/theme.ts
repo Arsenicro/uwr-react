@@ -1,0 +1,49 @@
+import type { SkillCategory, ThemeMode } from "../types";
+
+type ChipPalette = { bg: string; text: string; border: string };
+
+export type ThemeTokens = {
+  mode: ThemeMode;
+  bg: string;
+  text: string;
+  heading: string;
+  surface: string;
+  border: string;
+  shadow: string;
+  accent: string;
+  toggleBg: string;
+  chip: Record<SkillCategory, ChipPalette>;
+};
+
+const chips: Record<SkillCategory, ChipPalette> = {
+  technical: { bg: "#dbeafe", text: "#1e40af", border: "#93c5fd" },
+  frontend: { bg: "#ede9fe", text: "#6d28d9", border: "#c4b5fd" },
+  soft: { bg: "#dcfce7", text: "#166534", border: "#86efac" },
+  backend: { bg: "#fee2e2", text: "#991b1b", border: "#fca5a5" },
+};
+
+export const lightTheme: ThemeTokens = {
+  mode: "light",
+  bg: "#f0f4f8",
+  text: "#475569",
+  heading: "#1e293b",
+  surface: "#ffffff",
+  border: "#e2e8f0",
+  shadow: "rgba(0,0,0,0.08)",
+  accent: "#0891b2",
+  toggleBg: "#f1f5f9",
+  chip: chips,
+};
+
+export const darkTheme: ThemeTokens = {
+  mode: "dark",
+  bg: "#0b1120",
+  text: "#94a3b8",
+  heading: "#f1f5f9",
+  surface: "#131c2e",
+  border: "#1e2d45",
+  shadow: "rgba(0,0,0,0.3)",
+  accent: "#22d3ee",
+  toggleBg: "#1e293b",
+  chip: chips,
+};

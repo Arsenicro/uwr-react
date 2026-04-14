@@ -1,5 +1,5 @@
 import type { Skill, SkillCategory } from '../../types'
-import s from './SkillTags.module.css'
+import s from './SkillTags.module.scss'
 
 const categoryClass: Record<SkillCategory, string> = {
   technical: s.technical,

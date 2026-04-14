@@ -1,4 +1,4 @@
-import s from './ProfileHeader.module.css'
+import s from './ProfileHeader.module.scss'
 
 function ProfileHeader({ name, title, company }: {
   name: string

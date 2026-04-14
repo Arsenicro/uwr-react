@@ -1,0 +1,8 @@
+@use "sass:map";
+@use "_variables" as var;
+
+@mixin chip-color($type) {
+  background: map.get(var.$chip-colors, $type, bg);
+  color: map.get(var.$chip-colors, $type, text);
+  border-color: map.get(var.$chip-colors, $type, border);
+}

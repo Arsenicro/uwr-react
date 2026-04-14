@@ -1,0 +1,14 @@
+.boxes {
+  display: flex;
+  gap: 20px;
+}
+
+.boxes > :global(.box:first-child) {
+  width: 300px;
+  height: 100px;
+}
+
+.boxes > :global(.box:last-child) {
+  width: 100px;
+  height: 300px;
+}

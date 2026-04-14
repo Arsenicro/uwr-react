@@ -1,4 +1,4 @@
-import s from './AboutSection.module.css'
+import s from './AboutSection.module.scss'
 
 function AboutSection({ text }: { text: string }) {
   return (

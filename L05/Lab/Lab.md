@@ -49,6 +49,21 @@ Wymagane elementy SCSS:
 
 Strukturę komponentów i plików możesz zaprojektować samodzielnie.
 
+<details>
+<summary>💡 Podpowiedź: generowanie właściwości CSS dla każdego motywu</summary>
+
+```scss
+@mixin themed($prop, $token) {
+  @each $name, $palette in t.$themes {
+    :global(.theme-#{$name}) & {
+      #{$prop}: map.get($palette, $token);
+    }
+  }
+}
+```
+
+</details>
+
 ### 3. Implementacja CSS-in-JS (Emotion)
 
 Wersję Emotion zaimplementuj w folderze `src/componentsCssInJs/`.
@@ -56,7 +71,14 @@ Wersję Emotion zaimplementuj w folderze `src/componentsCssInJs/`.
 Wymagania:
 
 - użyj `@emotion/styled`,
-- użyj `ThemeProvider` i tokenów motywu light/dark,
+- użyj `ThemeProvider` i tokenów motywu light/dark/midnight,
 - nie twórz osobnego pliku CSS dla tej wersji: do stylów globalnych użyj komponentu Global z emotion
 
 Strukturę komponentów i plików możesz zaprojektować samodzielnie.
+
+<details>
+<summary>💡 Podpowiedź: TypeScript i motyw Emotion</summary>
+
+[`L05/Lecture/playground-05/src/componentsCssInJs/emotion.d.ts`](../Lecture/playground-05/src/componentsCssInJs/emotion.d.ts)
+
+</details>

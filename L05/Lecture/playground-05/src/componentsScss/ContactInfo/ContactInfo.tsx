@@ -1,4 +1,4 @@
-import s from './ContactInfo.module.css'
+import s from './ContactInfo.module.scss'
 
 function ContactInfo({ phone, email, website }: {
   phone: string

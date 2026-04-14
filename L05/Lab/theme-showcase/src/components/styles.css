@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ── App shell ─────────────────────────── */
+
+.app {
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.theme-light {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.theme-dark {
+  background: #0f172a;
+  color: #94a3b8;
+}
+
+.theme-midnight {
+  background: #1a1025;
+  color: #c4b5fd;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Cards ─────────────────────────────── */
+
+.card {
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid;
+}
+
+.theme-light .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.theme-dark .card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.theme-midnight .card {
+  background: #261838;
+  border-color: #3b2756;
+}
+
+/* ── TopBar ────────────────────────────── */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar .app-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.theme-light .top-bar .app-title {
+  color: #0f172a;
+}
+
+.theme-dark .top-bar .app-title {
+  color: #f1f5f9;
+}
+
+.theme-midnight .top-bar .app-title {
+  color: #e9d5ff;
+}
+
+.theme-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.theme-light .theme-select {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.theme-dark .theme-select {
+  background: #0f172a;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+.theme-midnight .theme-select {
+  background: #1a1025;
+  border-color: #5b21b6;
+  color: #e9d5ff;
+}
+
+/* ── ProfileCard ───────────────────────── */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.theme-light .profile-avatar {
+  background: #3b82f6;
+}
+
+.theme-dark .profile-avatar {
+  background: #6366f1;
+}
+
+.theme-midnight .profile-avatar {
+  background: #7c3aed;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.theme-light .profile-name {
+  color: #0f172a;
+}
+
+.theme-dark .profile-name {
+  color: #f1f5f9;
+}
+
+.theme-midnight .profile-name {
+  color: #e9d5ff;
+}
+
+.profile-title {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.profile-location {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* ── AboutCard ─────────────────────────── */
+
+.card-heading {
+  margin: 0 0 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.theme-light .card-heading {
+  color: #64748b;
+}
+
+.theme-dark .card-heading {
+  color: #64748b;
+}
+
+.theme-midnight .card-heading {
+  color: #8b5cf6;
+}
+
+.about-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ── SkillsCard ────────────────────────── */
+
+.skill-group {
+  margin-bottom: 12px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-label {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.chip-language {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+.chip-framework {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.chip-tool {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+.chip-soft {
+  background: #ede9fe;
+  color: #5b21b6;
+  border-color: #c4b5fd;
+}
+
+/* ── ExperienceCard ────────────────────── */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.experience-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.experience-role {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.theme-light .experience-role {
+  color: #0f172a;
+}
+
+.theme-dark .experience-role {
+  color: #e2e8f0;
+}
+
+.theme-midnight .experience-role {
+  color: #e9d5ff;
+}
+
+.experience-company {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+
+.experience-period {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  opacity: 0.55;
+}
+
+/* ── ContactCard ───────────────────────── */
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.contact-label {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.theme-light .contact-label {
+  color: #0f172a;
+}
+
+.theme-dark .contact-label {
+  color: #e2e8f0;
+}
+
+.theme-midnight .contact-label {
+  color: #c4b5fd;
+}

@@ -1,6 +1,8 @@
 export type ThemeMode = "light" | "dark";
 
-export type SkillCategory = "technical" | "frontend" | "soft";
+export const categories = ["technical", "frontend", "soft", "backend"] as const;
+
+export type SkillCategory = (typeof categories)[number];
 
 export type Skill = {
   name: string;

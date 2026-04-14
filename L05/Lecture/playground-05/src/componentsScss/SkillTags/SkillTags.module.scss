@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "../styles/_variables" as var;
+@use "../styles/_mixins" as mixins;
+
+.title {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  :global(.theme-light) & {
+    color: map.get(var.$themes, light, heading);
+  }
+
+  :global(.theme-dark) & {
+    color: map.get(var.$themes, dark, heading);
+  }
+}
+
+@mixin chip {
+  padding: 4px 12px;
+  border-radius: var.$radius-chip;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .chip {
+    @include chip;
+    // #{$type} => technical, frontend, soft
+    @each $type in map.keys(var.$chip-colors) {
+      &.#{$type} {
+        @include mixins.chip-color($type);
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import AboutSection from '../AboutSection/AboutSection'
 import ContactInfo from '../ContactInfo/ContactInfo'
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import SkillTags from '../SkillTags/SkillTags'
-import s from './App.module.css'
+import s from './App.module.scss'
 import './global.css'
 
 function AppScss() {
