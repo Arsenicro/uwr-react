@@ -63,7 +63,7 @@ Requirements:
 - use the `sx` prop for style overrides when needed,
 - do not create a separate CSS file — use `CssBaseline` for the global reset,
 - implement **color-coded chips in SkillsCard** — each category should have its own colors, set via `sx`,
-- implement an **Edit Profile dialog** using MUI components: `Dialog`, `DialogTitle`, `DialogContent`, `DialogActions`, `TextField`, `Switch`, `Button` — add an **Edit** button to the profile card,
+- implement an **Edit Profile dialog** using MUI components add an **Edit** button to the profile card,
 - editable fields: name, description, and skills,
 - use `Autocomplete` (with `multiple`) for the skill multi-select in the dialog.
 

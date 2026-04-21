@@ -63,7 +63,7 @@ Wymagania:
 - używaj propsa `sx` do nadpisywania stylów, gdy to potrzebne,
 - nie twórz osobnego pliku CSS — do resetu globalnego użyj `CssBaseline`,
 - zaimplementuj **kolorowe chipy w SkillsCard** — każda kategoria powinna mieć własne kolory, ustawione przez `sx`,
-- zaimplementuj **dialog edycji profilu** z komponentami MUI: `Dialog`, `DialogTitle`, `DialogContent`, `DialogActions`, `TextField`, `Switch`, `Button` — dodaj przycisk **Edit** do karty profilu,
+- zaimplementuj **dialog edycji profilu** z komponentami MUI — dodaj przycisk **Edit** do karty profilu,
 - edytować można: imię i nazwisko, opis oraz umiejętności,
 - użyj `Autocomplete` (z `multiple`) do multi-selectu umiejętności w dialogu.
 

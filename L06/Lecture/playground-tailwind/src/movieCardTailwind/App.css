@@ -1,4 +1,8 @@
-.movies-list {
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* .movies-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
@@ -97,3 +101,4 @@
   background: transparent;
   color: #1a1a2e;
 }
+ */

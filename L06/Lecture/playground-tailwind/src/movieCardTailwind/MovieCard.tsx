@@ -1,25 +1,27 @@
-import alice from "../images/Alice.webp";
+import type { Movie } from "../moviesData";
+import Tag from "./Tag";
 
-function MovieCard() {
+
+function MovieCard({ title, description, categories, image }: Movie) {
   return (
-    <div className="movie-card">
+    <div className="
+    max-w-sm mx-auto my-10 rounded-lg overflow-hidden bg-white text-gray-900 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all duration-300
+    dark:bg-gray-800 dark:text-gray-100
+    ">
       <img
-        className="movie-card-image"
-        src={alice}
-        alt="Alice in Wonderland"
+        className="w-full h-56 object-cover"
+        src={image}
+        alt={title}
       />
-      <div className="movie-card-body">
-        <h2 className="movie-card-title">Alice in Wonderland</h2>
-        <p className="movie-card-description">
-          Nineteen-year-old Alice returns to the magical world from her
-          childhood adventure, where she reunites with her old friends and
-          learns of her true destiny: to end the Red Queen's reign of terror.
+      <div className="p-6">
+        <h2 className="text-2xl font-bold mb-2">{title}</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          {description}
         </p>
-        <div className="movie-card-tags">
-          <span className="tag tag-fantasy">Fantasy</span>
-          <span className="tag tag-adventure">Adventure</span>
-          <span className="tag tag-family">Family</span>
-          <span className="tag tag-musical">Musical</span>
+        <div className="flex flex-wrap gap-2">
+          {categories.map(category => (
+            <Tag key={category} category={category} />
+          ))}
         </div>
       </div>
     </div>
