@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server",
+  "keywords": [
+    "server"
+  ],
+  "license": "ISC",
+  "author": "KMa",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx tsx server.ts"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6"
+  }
+}
