@@ -12,9 +12,11 @@ interface Props {
     description: string;
     categories: Category[];
   };
+  apiLoading?: boolean;
+  apiError?: string;
 }
 
-function MovieModal({ open, onClose, onSave, saveText, initialData }: Props) {
+function MovieModal({ open, onClose, onSave, saveText, initialData, apiLoading, apiError }: Props) {
   /* 
   Źle!
   
@@ -35,7 +37,7 @@ function MovieModal({ open, onClose, onSave, saveText, initialData }: Props) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <MovieForm onSave={onSave} initialData={initialData} onClose={onClose} saveText={saveText} />
+      <MovieForm onSave={onSave} initialData={initialData} onClose={onClose} saveText={saveText} apiLoading={apiLoading} apiError={apiError} />
     </Modal>
   )
 }

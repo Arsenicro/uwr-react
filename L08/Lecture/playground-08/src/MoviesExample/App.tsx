@@ -35,6 +35,7 @@ function MovieApp() {
 
       <MovieModal open={addModalOpen} onClose={() => setAddModalOpen(false)} onSave={handleAddMovie} saveText="Add Movie" />
       <MovieModal
+        key={editModalId || "new"}
         open={!!editModalId}
         onClose={() => setEditModalId(null)}
         onSave={handleEditMovie}

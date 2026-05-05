@@ -1,7 +1,7 @@
 
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import Content from "./SimpleExample/App";
+import Content from "./MoviesExampleApi/App";
 import { darkTheme } from "./theme";
 
 

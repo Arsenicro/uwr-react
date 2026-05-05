@@ -1,6 +1,7 @@
 import SendIcon from '@mui/icons-material/Send';
 import { Box, Container, IconButton, Tab, Tabs, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import createConnection from './Chat';
 
 const tabs = [
   { id: 'alice', label: 'Alice' },
@@ -19,6 +20,15 @@ function ChatApp() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   }
+
+  useEffect(() => {
+    const connection = createConnection(selectedTab);
+    connection.connect();
+
+    return () => {
+      connection.disconnect();
+    }
+  }, [selectedTab])
 
   return (
     <Container>
