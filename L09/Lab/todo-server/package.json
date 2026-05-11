@@ -1,0 +1,18 @@
+{
+  "name": "todo-server",
+  "version": "1.0.0",
+  "description": "Lab 08 ToDo API server",
+  "license": "ISC",
+  "author": "UWr React Course",
+  "main": "server.ts",
+  "scripts": {
+    "start": "npx tsx server.ts"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6"
+  }
+}
