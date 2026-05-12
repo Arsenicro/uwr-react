@@ -1,18 +1,23 @@
 import { Modal } from "@mui/material";
 import { type Category } from "../moviesData";
 import MovieForm from "./MovieForm";
+import useAddMovieMutation from "./api/movies/useAddMovieMutation";
 
 interface Props {
   open: boolean;
   onClose: () => void;
-  onSave: (title: string, description: string, categories: Category[]) => void;
 
-  apiLoading?: boolean;
-  apiError?: string;
 }
 
-function AddMovieModal({ open, onClose, onSave, apiLoading, apiError }: Props) {
-
+function AddMovieModal({ open, onClose }: Props) {
+  const addMovieMutation = useAddMovieMutation();
+  async function handleAddMovie(title: string, description: string, categories: Category[]) {
+    addMovieMutation.mutate({ title, description, categories }, {
+      onSuccess: () => {
+        onClose();
+      }
+    });
+  }
   return (
     <Modal
       open={open}
@@ -20,7 +25,7 @@ function AddMovieModal({ open, onClose, onSave, apiLoading, apiError }: Props) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <MovieForm onSave={onSave} onClose={onClose} saveText="Add Movie" apiLoading={apiLoading} apiError={apiError} />
+      <MovieForm onSave={handleAddMovie} onClose={onClose} saveText="Add Movie" apiLoading={addMovieMutation.isPending} apiError={addMovieMutation.error?.message} />
     </Modal>
   )
 }

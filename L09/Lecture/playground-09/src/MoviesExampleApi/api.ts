@@ -1,5 +1,5 @@
-import type { Category } from "../moviesData";
-
+import type { Category, Movie } from "../moviesData";
+//: Promise<Movie[]>
 export async function fetchMovies(search?: string) {
   const response = await fetch(
     "http://localhost:3000/movies?" +
@@ -42,7 +42,7 @@ export async function editMovie(
   title: string,
   description: string,
   categories: Category[],
-) {
+): Promise<Movie> {
   const response = await fetch(`http://localhost:3000/movies/${id}`, {
     method: "PUT",
     headers: {

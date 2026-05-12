@@ -1,87 +1,19 @@
-import { Box, Button, Container, Grid, LinearProgress, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, Button, CircularProgress, Container, Grid, LinearProgress, TextField } from "@mui/material";
+import { useState } from "react";
 import MovieCard from "../MovieCard";
-import { type Category, type Movie } from "../moviesData";
 import AddMovieModal from "./AddMovieModal";
 import EditMovieModal from "./EditMovieModal";
-import { addMovie, editMovie, fetchMovies } from "./api";
+import useMoviesQuery from "./api/movies/useMoviesQuery";
 
 function MovieApp() {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalId, setEditModalId] = useState<string | null>(null);
-  const [movies, setMovies] = useState<Movie[]>([]);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | undefined>(undefined);
 
-  async function refetchMovies() {
-    setLoading(true);
-    const movies = await fetchMovies(search);
-    setMovies(movies);
-    setLoading(false);
-  }
+  //const moviesQuery = useQuery<Movie[]>({ queryKey: ['movies', 'search'], queryFn: () => fetchMovies(search) });
+  //const moviesQuery = useQuery<Movie[]>({ queryKey: [{'search', 'movies'}], queryFn: () => fetchMovies(search) });
 
-  async function handleAddMovie(title: string, description: string, categories: Category[]) {
-    try {
-      setError(undefined);
-      setLoading(true);
-      await addMovie(title, description, categories);
-      //setMovies([...movies, newMovie]); // (Prawie) Optymistyczna aktualizacja UI
-      await refetchMovies();
-      setAddModalOpen(false);
-    } catch (error) {
-      if (error instanceof Error) setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function handleEditMovie(title: string, description: string, categories: Category[]) {
-    try {
-      setError(undefined);
-      if (!editModalId) return;
-      setLoading(true);
-      await editMovie(editModalId, title, description, categories);
-      await refetchMovies();
-      setEditModalId(null);
-    } catch (error) {
-      if (error instanceof Error) setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-
-  }
-
-  /*   const loadMovies = useCallback(async () => {
-      const movies = await fetchMovies(search);
-      setMovies(movies);
-    }, [search]);
-  
-    useEffect(() => {
-      // Nie do końca poprawne
-      loadMovies();
-    }, [loadMovies]) */
-
-  useEffect(() => {
-    let ignore = false;
-
-
-    async function loadMovies() {
-      setLoading(true);
-      const movies = await fetchMovies(search);
-      if (!ignore) {
-        setMovies(movies);
-        setLoading(false);
-      }
-    }
-
-    loadMovies();
-
-    return () => {
-      ignore = true;
-    }
-  }, [search])
-
+  const moviesQuery = useMoviesQuery(search);
 
   return (
     <Container>
@@ -96,10 +28,11 @@ function MovieApp() {
       />
 
 
-      {loading && <LinearProgress />}
+      {moviesQuery.isFetching && !moviesQuery.isPending && <LinearProgress />}
+      {moviesQuery.isLoading && <Box sx={{ mt: 4, textAlign: 'center' }}><CircularProgress /></Box>}
 
       <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
-        {movies.map((movie) => (
+        {moviesQuery.data?.map((movie) => (
           <Grid size={{ xs: 8, md: 4 }} key={movie.id}>
             <MovieCard movie={movie} triggerMovieEdit={() => {
               setEditModalId(movie.id);
@@ -108,29 +41,21 @@ function MovieApp() {
         ))}
       </Grid>
 
-      {movies.length === 0 && !loading && <Box sx={{ mt: 4, textAlign: 'center' }}>No movies found.</Box>}
+      {moviesQuery.data?.length === 0 && !moviesQuery.isFetching && <Box sx={{ mt: 4, textAlign: 'center' }}>No movies found.</Box>}
 
       <AddMovieModal
         open={addModalOpen}
         onClose={() => {
           setAddModalOpen(false)
-          setError(undefined);
         }}
-        onSave={handleAddMovie}
-        apiLoading={loading}
-        apiError={error}
       />
       <EditMovieModal
         key={editModalId || "new"}
+        id={editModalId || undefined}
         open={!!editModalId}
         onClose={() => {
           setEditModalId(null);
-          setError(undefined);
         }}
-        onSave={handleEditMovie}
-        initialData={editModalId ? movies.find((m) => m.id === editModalId) : undefined}
-        apiLoading={loading}
-        apiError={error}
       />
 
     </Container>
