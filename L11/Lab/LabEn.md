@@ -74,7 +74,7 @@ Home and the task list must always be visible in a top navigation bar. The activ
 - On `/todos`, read the `done` search param and fetch the matching list from the API.
 - When the user switches filters, show a loading indicator while the new list is being fetched (for example with a `Suspense` boundary around the list).
 - Put forms and other interactive UI in **Client Components** (`"use client"`).
-- On the edit page, fetch the task on the server and pass it to a Client Component form so the fields are prefilled.
+- On the edit page, fetch the task on the server and pass it to a form so the fields are prefilled.
 - If a task does not exist, call `notFound()` and provide a `not-found.tsx` page for `/todos/[id]`.
 
 ### 3. Server Actions

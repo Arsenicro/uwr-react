@@ -74,7 +74,7 @@ Strona główna i lista zadań muszą być zawsze widoczne w górnym pasku nawig
 - Na `/todos` odczytuj search param `done` i pobieraj odpowiednią listę z API.
 - Gdy użytkownik przełącza filtry, pokaż wskaźnik ładowania, dopóki nowa lista się nie załaduje (np. za pomocą `Suspense` wokół listy).
 - Formularze i interaktywny UI umieszczaj w **Client Components** (`"use client"`).
-- Na stronie edycji pobierz zadanie na serwerze i przekaż je do formularza w Client Component, aby pola były wstępnie uzupełnione.
+- Na stronie edycji pobierz zadanie na serwerze i przekaż je do formularza tak, aby pola były wstępnie uzupełnione.
 - Jeśli zadanie nie istnieje, wywołaj `notFound()` i zapewnij stronę `not-found.tsx` dla `/todos/[id]`.
 
 ### 3. Server Actions
