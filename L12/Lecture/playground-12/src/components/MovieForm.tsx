@@ -30,6 +30,7 @@ export default function MovieForm() {
     <form
       className="mb-8 space-y-4 rounded-2xl border-2 border-dashed border-indigo-300 bg-white p-6 dark:border-indigo-800 dark:bg-slate-900"
       onSubmit={handleSubmit}
+      aria-label="Add new movie form"
     >
       <h2 className="text-xl font-bold text-indigo-900 dark:text-indigo-300">
         New movie
