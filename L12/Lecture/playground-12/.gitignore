@@ -1,0 +1,14 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# Test artifacts
+/test-results/
+/playwright-report/
+/playwright/.cache/
